@@ -28,6 +28,8 @@ public class Example3Predicates {
 		
 		Predicate<Integer> isEven = num -> ( num %2 == 0);
 		
+		Predicate<Integer> isGT4 = num -> (num >4);
+		
 		Integer i = 20;
 		
 		boolean resultCheck = isEven.test(i);
@@ -38,7 +40,14 @@ public class Example3Predicates {
 		
 		System.out.println("resultCheck for input 31 = "+resultCheck2);
 		
+		//what if we want to check a number is even and greater than 4 both 
 		
+		System.out.println("Using two predicates together");
+		
+		boolean check = isGT4.and(isEven).test(5);
+		boolean check1 = isGT4.or(isEven).test(5);
+		System.out.println("is >4 and is even ?"+ check);
+		System.out.println("is >4 or is even ?"+ check1); 
 		
 	}
 	

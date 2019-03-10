@@ -30,3 +30,17 @@ class PrinterAndScanner implements Printer,Scanner{
 	}
 	
 }
+
+
+interface Fly{
+	default void takeOff()
+	{ System.out.println("fly::takeOff"); };
+	default void turn()
+	{ System.out.println("fly::turn");  };
+	default void cruise()
+	{ System.out.println("fly::cruise");  };
+	default void land()
+	{ System.out.println("fly::land");  };
+	int getState();
+	
+}

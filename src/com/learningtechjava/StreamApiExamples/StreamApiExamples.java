@@ -5,7 +5,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.function.Function;
+
+import static java.util.stream.Collectors.*;
 
 import com.learningtechjava.model.Employee;
 
@@ -36,7 +38,7 @@ public class StreamApiExamples {
 		
 		System.out.println("================================");
 		// example 4 , collect(Collectors.toList) convert streams into collection
-		List<Employee> finalList = list.stream().filter(p -> p.getSalary() > 50000).collect(Collectors.toList());
+		List<Employee> finalList = list.stream().filter(p -> p.getSalary() > 50000).collect(toList());
 		
 		finalList.forEach(e->System.out.println(e)); 
 		
@@ -81,10 +83,19 @@ public class StreamApiExamples {
 	     */
 		
 	    Map<Integer, String> monthsWithLengthFour  = MONTHS.entrySet().stream().filter(p -> p.getValue().length() ==4 )
-	    											.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
+	    											.collect(toMap(p -> p.getKey(), p -> p.getValue()));
 	    
 	    System.out.println(monthsWithLengthFour); 
 	    
+	    List<String> listOfString = new ArrayList<>();
+	    listOfString.add("Java");
+	    listOfString.add("JavaScript");
+	    listOfString.add("Python");
+	    listOfString.add("C++");
+	    listOfString.add("Ruby");
+
+	    HashMap<String,Integer> map = (HashMap<String, Integer>) listOfString.stream().collect(toMap(Function.identity(), s ->s.length()));
+	   System.out.println(map);
 	}
 	
 }

@@ -1,0 +1,38 @@
+Collection framework 
+
+java.util.* - package 
+
+Iterable -> Collection (Interface) -> AbstractCollection ( extends collection interface)
+
+Collections ( class)
+
+Collection 
+	1) List
+		a) ArrayList
+		b) LinkedList
+	2) Set -> SortedSet
+		a) HashSet
+		b) LinkedHashSet
+		c) TreeSet
+	3) Queue
+	4) Deque
+
+Map ( Interface)
+	1) HashMap
+	2) LinkedHashMap
+	3) TreeMap
+		 
+
+#Iterators - used to retrieve elements one by one 
+1) enumeration ( in JDK 1) 
+2) Iterator 	 - univeral iterator , can use over any collection , use to read and remove elements 
+				Here "c" is any Collection object. itr is of type Iterator interface and refers to "c"
+				Iterator itr = c.iterator();
+				Only forward direction iterating is possible.
+				Replacement and addition of new element is not supported by Iterator
+ 
+3) ListIterator - only applicable for list interface , bi-directional iteration
+				Here "l" is any List object, ltr is of type ListIterator interface and refers to "l"
+				ListIterator ltr = l.listIterator();
+(ListIterator -> Iterator ) [ both are interface]
+

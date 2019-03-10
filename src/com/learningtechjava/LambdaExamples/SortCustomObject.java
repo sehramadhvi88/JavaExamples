@@ -3,6 +3,7 @@ package com.learningtechjava.LambdaExamples;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import com.learningtechjava.model.Employee;
 
@@ -16,6 +17,7 @@ public class SortCustomObject {
 		list.add(new Employee(504, "Oogway", 120000));
 		list.add(new Employee(503, "Tigress", 100000));
 		list.add(new Employee(730, "Mantis", 45000));
+		list.add(new Employee(600, "Mantis", 45000));
 		 
 		
 		// standard way of comparison 
@@ -56,6 +58,16 @@ public class SortCustomObject {
 		
 		list.forEach(System.out::println);
 		
+		System.out.println("\n Using streams sorted method 1:");
+		printSorted(list, Comparator.comparing(Employee::getName));
+
+		System.out.println("\n Using streams sorted method 2:");
+		printSorted(list, Comparator.comparing(Employee::getId).thenComparing(Employee::getName)); 
+		
+	}
+	
+	public static void printSorted(List<Employee> list,Comparator<Employee> comparator){
+		list.stream().sorted(comparator).forEach(System.out::println);
 	}
 	
 }
